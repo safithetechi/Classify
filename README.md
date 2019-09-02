@@ -14,3 +14,7 @@ http://download.tensorflow.org/models/image/imagenet/inception-2015-12-05.tgz --
   
   After you downloaded these two files please place them in the same folder and rename it as 'models_places' or replace the PlacesPath
   variable with your folders name
+
+
+
+<img src='screenshot/Screenshot from 2019-09-01 22-58-17.png'>
