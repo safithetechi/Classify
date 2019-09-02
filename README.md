@@ -6,8 +6,9 @@ Is a web app that was built as an experiment to run both tensorflow and caffe, i
 
 # Inception Trained on imagenet dataset
 
-http://download.tensorflow.org/models/image/imagenet/inception-2015-12-05.tgz ----- To download the inception model
+http://download.tensorflow.org/models/image/imagenet/inception-2015-12-05.tgz 
 
+uncompress and place it in the main directory
 
 # Alexnet trained on places dataset
 
