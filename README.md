@@ -1,8 +1,10 @@
 # Classify
-Web app that runs tensorflow and caffe at the backend to classify images. I use tensorflow for Inception and caffe for alexnet
+
+Is a web app that was built as an experiment to run both tensorflow and caffe, it classifies images using both frameworks and two different models i.e Inception(using tensorflow) and AlexNet(using caffe). The web app front is made with jqurey and the backend was made using Pythons flask framework
 
 
-# Inception trained on image net
+
+# Inception Trained on imagenet dataset
 
 http://download.tensorflow.org/models/image/imagenet/inception-2015-12-05.tgz ----- To download the inception model
 
