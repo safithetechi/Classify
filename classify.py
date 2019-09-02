@@ -45,7 +45,7 @@ ALLOWED_EXTENSIONS = set([ 'png', 'jpg', 'jpeg', 'gif'])
 
 parser = argparse.ArgumentParser()
 
-InceptionPath ='inception-2015-12-05',
+InceptionPath ='inception-2015-12-05'
 PlacesPath = 'models_places'
 
 
