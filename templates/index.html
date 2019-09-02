@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>HTML5 / jQuery</title>
+        <link rel="stylesheet" href="static/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="static/css/styles.css" />
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		<script type="text/javascript" src="static/js/jquery.filedrop.js"></script>
+        <script type="text/javascript" src="static/js/upload.js"></script>
+    </head>
+    <body>
+
+
+      <div class="container-fluid">
+
+      <div class="modal-body row">
+         <div class="col-xs-6">
+        <div id="dropbox">
+  			   <span class="message">Drop images here to upload.</span>
+  		  </div>
+
+        <div class="btn-group">
+          <button type="button" id="classify" class="btn btn-info">Classify Image Using Inception</button>
+          <button type="button" id="classify2" class="btn btn-info">Classify Image Using Places</button>
+        </div>
+
+
+      </div>
+
+
+      <div id="ListDiv"class="col-xs-6">
+        <ol id="List">
+
+
+        </ol>
+      </div>
+
+    </div>
+</div>
+
+<script>
+$("#classify").click((function() {
+  var flickerAPI = "/my_endpoint"
+  $.getJSON( flickerAPI, {
+    format: "json"
+  })
+    .done(function( data ) {
+
+      $('#List li').remove();
+
+
+      var items = [];
+
+     $.each(data, function(i, item) {
+        if(data[i]!='') items.push('<li>'+data[i]+'</li>');
+
+     });
+
+
+      $('#List').append( items.join('') );
+
+     });
+}));
+
+
+$("#classify2").click((function() {
+  var flickerAPI = "/places"
+  $.getJSON( flickerAPI, {
+    format: "json"
+  })
+    .done(function( data ) {
+      $('#List li').remove();
+
+      var items = [];
+
+     $.each(data, function(i, item) {
+
+          if(data[i]!='')   items.push('<li>'+data[i]+'</li>');
+
+     });
+
+
+      $('#List').append( items.join('') );
+     });
+}));
+</script>
+
+
+  </body>
+
+</html>

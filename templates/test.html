@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" >
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" >
+    <title>Hello, world!</title>
+  </head>
+  <body>
+
+    <div class="container-fluid">
+
+      <div class="row justify-content-md-center">
+        <div id="image" class="col-md-auto">
+          <img src="{{ url_for('static', filename='img/download.png') }}" height=300px width=300px />
+        </div>
+      </div>
+      <div class="row justify-content-md-center">
+        <div id="btn-div" class="col-md-auto">
+          <label for="upload-photo" class="btn btn-link">Browse</label>
+          <input type="file" name="arquivo" id="upload-photo simpleUpload" >
+          <button type="button" id="enviar">Enviar</button>
+
+
+        </div>
+      </div>
+
+      </div>
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{{ url_for('static', filename='js/jquery3.js') }}" ></script>
+
+    <script src="{{ url_for('static', filename='js/simpleUpload.min.js') }}"></script>
+
+    <script>
+
+    $('#simpleUpload').simpleUpload({
+	     url: 'localhost:5000/upload',
+	     trigger: '#enviar',
+	       success: function(data){
+		      alert('Envio com sucesso');
+	          }
+          });
+
+
+    </script>
+  </body>
+</html>
