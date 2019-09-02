@@ -15,7 +15,7 @@ http://download.tensorflow.org/models/image/imagenet/inception-2015-12-05.tgz --
   http://places2.csail.mit.edu/models_places365/alexnet_places365.caffemodel 
   
   After you downloaded these two files please place them in the same folder and rename it as 'models_places' or replace the PlacesPath
-  variable with your folders name
+  variable with your folders name in classify.py
 
 
 
