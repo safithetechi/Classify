@@ -43,15 +43,17 @@ UPLOAD_FOLDER='uploads'
 app.config['UPLOAD_FOLDER']=UPLOAD_FOLDER
 ALLOWED_EXTENSIONS = set([ 'png', 'jpg', 'jpeg', 'gif'])
 
-
-
 parser = argparse.ArgumentParser()
+
+InceptionPath ='inception-2015-12-05',
+PlacesPath = 'models_places'
+
 
 
 parser.add_argument(
       '--model_dir',
       type=str,
-      default='inception-2015-12-05',
+      default=InceptionPath,
       help="""\
       Path to classify_image_graph_def.pb,
       imagenet_synset_to_human_label_map.txt, and
@@ -161,24 +163,17 @@ def run_inference_on_image(image):
     tf.logging.fatal('File does not exist %s', image)
   image_data = tf.gfile.FastGFile(image, 'rb').read()
 
-  # Creates graph from saved GraphDef.
+
   create_graph()
 
   with tf.Session() as sess:
-    # Some useful tensors:
-    # 'softmax:0': A tensor containing the normalized prediction across
-    #   1000 labels.
-    # 'pool_3:0': A tensor containing the next-to-last layer containing 2048
-    #   float description of the image.
-    # 'DecodeJpeg/contents:0': A tensor containing a string providing JPEG
-    #   encoding of the image.
-    # Runs the softmax tensor by feeding the image_data as input to the graph.
+
     softmax_tensor = sess.graph.get_tensor_by_name('softmax:0')
     predictions = sess.run(softmax_tensor,
                            {'DecodeJpeg/contents:0': image_data})
     predictions = np.squeeze(predictions)
 
-    # Creates node ID --> English string lookup.
+
     node_lookup = NodeLookup()
 
     top_k = predictions.argsort()[-FLAGS.num_top_predictions:][::-1]
@@ -248,8 +243,8 @@ def classify_scene(fpath_design, fpath_weights, fpath_labels, im):
 def start_model2(image):
 
 	# fetch pretrained models
-	fpath_design = 'models_places/deploy_alexnet_places365.prototxt'
-	fpath_weights = 'models_places/alexnet_places365.caffemodel'
+	fpath_design = PlacesPath+'/deploy_alexnet_places365.prototxt'
+	fpath_weights = PlacesPath+'/alexnet_places365.caffemodel'
 	fpath_labels = 'resources/labels.pkl'
 
 	# fetch image
