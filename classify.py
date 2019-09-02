@@ -194,10 +194,7 @@ def main(_):
     os.path.join(FLAGS.model_dir, tmpimage))
     run_inference_on_image(image)
     os.remove('inception-2015-12-05/'+tmpimage)
-def start():
-    result=[]
-    tf.app.run(main=main, argv=[sys.argv[0]] + unparsed)
-    print("App started")
+
 
 
 
@@ -331,7 +328,7 @@ def start():
 
     tf.app.run(main=main, argv=[sys.argv[0]] + unparsed)
     print("App started")
-
+ 
 
 
 
