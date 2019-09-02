@@ -1,6 +1,6 @@
 # Classify
 
-Is a web app that was built as an experiment to run both tensorflow and caffe, it classifies images using both frameworks and two different models i.e Inception(using tensorflow) and AlexNet(using caffe). The web app front is made with jqurey and the backend was made using Pythons flask framework
+Is a web app that was built as an experiment to run both tensorflow and caffe, it classifies images using both frameworks and two different models i.e Inception(using tensorflow) and AlexNet(using caffe). The frontend is made with jqurey and the backend was made using Pythons flask framework
 
 
 
